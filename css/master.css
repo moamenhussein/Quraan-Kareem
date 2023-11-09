@@ -1,0 +1,686 @@
+:root {
+  --main-color: green;
+  --second-color: white;
+  --paragraph-color: #94a684;
+  --main-transition: 0.5s;
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "thuluth-decorated";
+}
+body {
+  direction: rtl;
+}
+html {
+  scroll-behavior: smooth;
+}
+.up {
+  position: fixed;
+  z-index: 9999;
+  color: var(--second-color);
+  background-color: var(--main-color);
+  font-size: 30px;
+  padding: 8px;
+  bottom: 20px;
+  right: -80px;
+  cursor: pointer;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+  transition: var(--main-transition);
+  -webkit-transition: var(--main-transition);
+  -moz-transition: var(--main-transition);
+  -ms-transition: var(--main-transition);
+  -o-transition: var(--main-transition);
+}
+.up.right {
+  right: 20px;
+}
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+.menu {
+  display: none;
+}
+.header {
+  position: absolute;
+  width: 100%;
+}
+.header .container {
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 30px;
+}
+.header .container a img {
+  width: 80px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header .container .nav ul {
+  display: flex;
+  transition: var(--main-transition);
+  -webkit-transition: var(--main-transition);
+  -moz-transition: var(--main-transition);
+  -ms-transition: var(--main-transition);
+  -o-transition: var(--main-transition);
+}
+.header .container .nav ul li a {
+  position: relative;
+  color: var(--second-color);
+  padding: 0 30px;
+  font-size: 22px;
+}
+.header .container .nav ul li a::before {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 3px;
+  background-color: var(--second-color);
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transition: var(--main-transition);
+  -webkit-transition: var(--main-transition);
+  -moz-transition: var(--main-transition);
+  -ms-transition: var(--main-transition);
+  -o-transition: var(--main-transition);
+}
+.header .container .nav ul li a:hover::before {
+  width: calc(100% - 52px);
+}
+.close {
+  display: none;
+  font-size: 30px;
+  padding: 15px;
+  cursor: pointer;
+  color: white;
+}
+@media (max-width: 940px) {
+  .menu {
+    display: block;
+    font-size: 25px;
+    cursor: pointer;
+    color: var(--second-color);
+  }
+  .close {
+    display: block;
+  }
+  .header .container .nav ul {
+    position: absolute;
+    z-index: 99999;
+    flex-direction: column;
+    left: 100%;
+    top: 110px;
+    text-align: left;
+    background-color: #4b362d;
+    width: 100%;
+  }
+  .header .container .nav ul.active {
+    left: 0;
+  }
+  .header .container .nav ul li a {
+    display: block;
+    padding: 20px;
+    text-align: right;
+  }
+  .header .container .nav ul li a::before {
+    width: 0;
+    bottom: 0;
+  }
+}
+
+.landing {
+  height: 100vh;
+  background-image: url("../imges/landing.avif");
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.landing .container .info {
+  text-align: center;
+}
+.landing .container .info h2 {
+  font-size: 80px;
+  color: var(--main-color);
+}
+.landing .container .info p {
+  color: #17706e;
+  font-size: 35px;
+  font-weight: bold;
+}
+.landing .container .welcome {
+  position: absolute;
+  right: 5%;
+  bottom: 10%;
+  color: var(--second-color);
+}
+.landing .container .welcome p {
+  font-size: 35px;
+  line-height: 1.5;
+}
+.landing .container .welcome p span {
+  color: var(--main-color);
+}
+.landing .container .welcome .time {
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  cursor: pointer;
+  background-color: transparent;
+  color: var(--second-color);
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+  border: none;
+  border: 1px solid var(--second-color);
+  transition: var(--main-transition);
+  -webkit-transition: var(--main-transition);
+  -moz-transition: var(--main-transition);
+  -ms-transition: var(--main-transition);
+  -o-transition: var(--main-transition);
+}
+.landing .container .welcome .time i {
+  padding-right: 5px;
+}
+
+.landing .container .welcome .time:hover {
+  background-color: white;
+  color: black;
+}
+
+.box-info .container {
+  padding: 50px;
+  margin: 50px 30px;
+  text-align: center;
+  color: var(--paragraph-color);
+  box-shadow: 1px -1px 15px 16px #c8c5c5;
+  border-bottom: 10px solid #8a8a8a;
+}
+.box-info .container .paragraph-one {
+  font-size: 50px;
+}
+.box-info .container .paragraph-two {
+  margin-top: 15px;
+  font-size: 30px;
+  color: #79ac78;
+}
+
+.prayerTime {
+  margin: 20px 30px;
+}
+.prayerTime h2 {
+  text-align: center;
+  font-size: 40px;
+  color: var(--main-color);
+}
+.prayerTime .input {
+  position: relative;
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+.prayerTime .input input {
+  width: 30%;
+  padding: 20px 30px;
+  border: none;
+  border: 2px solid var(--main-color);
+  caret-color: var(--main-color);
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+  font-size: 22px;
+}
+.prayerTime .input input:focus {
+  outline: none;
+}
+.prayerTime .input .search {
+  margin-right: 20px;
+  padding: 20px;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  background-color: var(--main-color);
+  color: white;
+  font-weight: bold;
+}
+.year {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 40px;
+  font-weight: bold;
+  color: var(--main-color);
+}
+.boxstime {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px;
+  margin: 50px;
+  text-align: center;
+}
+.boxstime .box {
+  background-color: var(--main-color);
+  padding: 30px 0;
+  color: var(--second-color);
+  font-size: 22px;
+  font-weight: bold;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+}
+.boxstime .box .name {
+  padding-bottom: 10px;
+}
+@media (max-width: 700px) {
+  .landing .container .info p {
+    font-size: 30px;
+  }
+  .box-info .container .paragraph-one {
+    font-size: 20px;
+    line-height: 1.5;
+  }
+  .box-info .container .paragraph-two {
+    font-size: 18px;
+    line-height: 1.5;
+  }
+  .prayerTime .input input {
+    width: 60%;
+  }
+}
+.namecity {
+  margin-top: 20px;
+}
+.result,
+.namecity {
+  text-align: center;
+  color: var(--main-color);
+  font-size: 40px;
+  font-weight: bold;
+}
+.footer {
+  background-color: var(--main-color);
+}
+.footer .container {
+  margin: 20px 30px 0 30px;
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-family: system-ui;
+}
+
+.footer .container .made {
+  font-size: 23px;
+  color: white;
+  letter-spacing: 1px;
+}
+
+@media (max-width: 800px) {
+  .footer .container {
+    flex-direction: column-reverse;
+  }
+  .footer .container .made {
+    padding: 20px 0;
+    font-size: 12px;
+  }
+  .footer .container ul li a i {
+    font-size: 12px;
+  }
+}
+.footer .container ul {
+  display: flex;
+}
+.footer .container ul li a {
+  padding: 0 10px;
+  font-size: 22px;
+  color: white;
+}
+.footer .container ul li a i {
+  padding: 5px;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+}
+.footer .container ul li a i:hover {
+  animation: move 0.1s linear infinite alternate;
+  -webkit-animation: move 0.1s linear infinite alternate;
+}
+@keyframes move {
+  from {
+    transform: rotate(10deg);
+    -webkit-transform: rotate(10deg);
+    -moz-transform: rotate(10deg);
+    -ms-transform: rotate(10deg);
+    -o-transform: rotate(10deg);
+  }
+  to {
+    transform: rotate(-20deg);
+    -webkit-transform: rotate(-20deg);
+    -moz-transform: rotate(-20deg);
+    -ms-transform: rotate(-20deg);
+    -o-transform: rotate(-20deg);
+  }
+}
+.footer .container ul li a i.facebook {
+  background-color: #1877f2;
+}
+.footer .container ul li a i.github {
+  background-color: #6e5494;
+}
+.footer .container ul li a i.linkedin {
+  background-color: #0a66c2;
+}
+.footer .container ul li a i.insta {
+  background-color: #fd1d1d;
+}
+.footer .container ul li a i.whats {
+  background-color: #25d366;
+}
+.hadis {
+  background-color: #198754;
+  margin-top: -20px;
+}
+.quran,
+.tafseer {
+  background-color: #198754;
+}
+.landing-hadis,
+.tasabieh {
+  width: 100%;
+}
+.landing-hadis .container,
+.tasabieh .container {
+  position: relative;
+  top: 150px;
+  margin: 20px 30px;
+  text-align: center;
+}
+.landing-hadis .container h2,
+.tasabieh .container h2 {
+  color: var(--main-color);
+  font-size: 50px;
+}
+.landing-hadis .container .hadis-content,
+.tasabieh .container .tasabieh-contentet {
+  margin: 40px 20px;
+  box-shadow: 1px -1px 15px 16px #c8c5c5;
+  padding: 130px 20px;
+  font-size: 25px;
+  line-height: 2;
+}
+.number-container {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  cursor: pointer;
+  padding: 40px;
+}
+@media (max-width: 700px) {
+  .number-container {
+    position: relative;
+    padding: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+  }
+}
+.number-container .next:hover,
+.number-container .prev:hover,
+.number-container .nextbtn:hover,
+.number-container .prevbtn:hover {
+  background-color: var(--main-color);
+  color: var(--second-color);
+  transition: var(--main-transition) linear;
+  -webkit-transition: var(--main-transition) linear;
+  -moz-transition: var(--main-transition) linear;
+  -ms-transition: var(--main-transition) linear;
+  -o-transition: var(--main-transition) linear;
+}
+
+.number-container .done {
+  width: fit-content;
+  color: var(--main-color);
+  border: 1px solid var(--main-color);
+  padding: 10px;
+  position: relative;
+  right: 50%;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+}
+.prev.solid,
+.nextDone.solid,
+.number-container .nextbtn.solid,
+.number-container .prevbtn.solid {
+  pointer-events: none;
+}
+.next.solid,
+.prevDone.solid {
+  pointer-events: none;
+}
+.azkarandhadis {
+  border-bottom: 10px solid #8a8a8a;
+}
+.offline {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  text-align: center;
+  top: 50%;
+  font-size: 30px;
+}
+.paragraph-heading .count {
+  display: block;
+}
+.tasbiha-container {
+  display: flex;
+  justify-content: center;
+}
+.tasbiha-container .count {
+  margin-right: 20px;
+}
+.heading-tafseer {
+  position: absolute;
+  top: 130px;
+  text-align: center;
+  width: 100%;
+  font-size: 30px;
+  color: var(--main-color);
+}
+.tafseer-content {
+  margin: 0 5%;
+  position: relative;
+  top: 200px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px;
+  text-align: center;
+}
+.tafseer-content .main-div-tafseer {
+  background-color: white;
+  padding: 40px;
+  border: 1px solid #f2f2f2;
+  box-shadow: 1px -1px 9px 0px #c8c5c5;
+  cursor: pointer;
+  font-size: 20px;
+  border-top-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  transition: var(--main-transition);
+  -webkit-transition: var(--main-transition);
+  -moz-transition: var(--main-transition);
+  -ms-transition: var(--main-transition);
+  -o-transition: var(--main-transition);
+}
+.tafseer-content .main-div-tafseer:hover {
+  background-color: var(--main-color);
+  color: var(--second-color);
+  transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  -o-transform: scale(1.1);
+}
+.tafseer-content .main-div-tafseer .second-div-tafseer {
+  position: relative;
+  top: 20%;
+}
+@media (max-width: 800px) {
+  .tafseer-content .main-div-tafseer:hover {
+    transform: scale(0.9);
+    -webkit-transform: scale(0.9);
+    -moz-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    -o-transform: scale(0.9);
+  }
+}
+
+.content-tafseer {
+  position: absolute;
+  top: -2%;
+  width: 100%;
+  background-color: white;
+  z-index: 2;
+  transform: translateX(200%);
+  -webkit-transform: translateX(200%);
+  -moz-transform: translateX(200%);
+  -ms-transform: translateX(200%);
+  -o-transform: translateX(200%);
+  transition: var(--main-transition);
+  -webkit-transition: var(--main-transition);
+  -moz-transition: var(--main-transition);
+  -ms-transition: var(--main-transition);
+  -o-transition: var(--main-transition);
+}
+.aya-container {
+  background-color: white;
+  width: 100%;
+  
+}
+.content-tafseer.left {
+  transform: translateX(0);
+  -webkit-transform: translateX(0);
+  -moz-transform: translateX(0);
+  -ms-transform: translateX(0);
+  -o-transform: translateX(0);
+}
+.icon .closecircle {
+  background-color: var(--main-color);
+}
+.closebtn {
+  margin-top: 20px;
+}
+.closebtn i {
+  width: fit-content;
+  padding: 10px;
+  font-size: 30px;
+  font-weight: bold;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  cursor: pointer;
+  color: var(--main-color);
+}
+.closebtn h2 {
+  text-align: center;
+  font-size: 30px;
+  color: var(--main-color);
+}
+.data-ref {
+  display: none;
+}
+.ayat {
+  text-align: center;
+  margin-top: 2%;
+  color: var(--main-color);
+  font-weight: bold;
+}
+.aya-tafseer {
+  /* margin-top: 5%; */
+  font-size: 22px;
+  margin: 20px 30px;
+  border-bottom: 2px solid #c4c4c4;
+  padding-bottom: 5px;
+}
+.aya-tafseer .text {
+  color: var(--main-color);
+}
+.aya-tafseer .translation {
+  color: #2f4474;
+  margin-top: 1%;
+  line-height: 1.5;
+}
+.tafseer-content.remove {
+  display: none;
+}
+.audio audio {
+  display: block;
+  margin-top: 20px;
+  position: relative;
+  right: 50%;
+  transform: translateX(50%);
+  -webkit-transform: translateX(50%);
+  -moz-transform: translateX(50%);
+  -ms-transform: translateX(50%);
+  -o-transform: translateX(50%);
+}
+.closebtn img {
+  width: 250px;
+  position: relative;
+  right: 50%;
+  transform: translateX(50%);
+  -webkit-transform: translateX(50%);
+  -moz-transform: translateX(50%);
+  -ms-transform: translateX(50%);
+  -o-transform: translateX(50%);
+}
+.contentayat {
+  color: #2f4474;
+  font-size: 25px;
+  line-height: 2;
+}
+.tbody-ayat {
+  padding: 20px;
+}
+.contentayat .number {
+  color: var(--main-color);
+}
