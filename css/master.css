@@ -622,6 +622,12 @@ a {
   margin-top: 20px;
   margin-right: 20px;
 }
+@media(max-width: 700px) {
+  .closebtn i {
+    margin-top: 40px;
+    margin-right: 40px;
+  }
+}
 .closebtn h2 {
   text-align: center;
   font-size: 30px;
