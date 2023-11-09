@@ -619,6 +619,8 @@ a {
   -o-border-radius: 50%;
   cursor: pointer;
   color: var(--main-color);
+  margin-top: 20px;
+  margin-right: 20px;
 }
 .closebtn h2 {
   text-align: center;
