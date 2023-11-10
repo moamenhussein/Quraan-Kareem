@@ -114,7 +114,7 @@ function targets(target) {
       // document.querySelectorAll("audio")[0].src.replace("http", "https")
       url.replace("http", "https")
       audio.innerHTML = `
-      <audio src="${url}" controls></audio>
+      <audio src="${url.replace("http", "https")}" controls></audio>
       `;
       // console.log(document.querySelectorAll("audio")[0].src.replace("http", "https"));
 
