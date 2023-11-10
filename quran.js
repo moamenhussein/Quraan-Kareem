@@ -15,6 +15,8 @@ let tbodyAyat = document.querySelector(".tbody-ayat");
 
 let newArr = [];
 let index = 0;
+
+
 menu.addEventListener("click", () => {
   ul.classList.add("active");
 });
@@ -108,9 +110,14 @@ function targets(target) {
       return data;
     })
     .then((data) => {
+      let url = data.data[target].recitation.full
+      // document.querySelectorAll("audio")[0].src.replace("http", "https")
+      url.replace("http", "https")
       audio.innerHTML = `
-      <audio src="${data.data[target].recitation.full}" controls></audio>
+      <audio src="${url}" controls></audio>
       `;
+      // console.log(document.querySelectorAll("audio")[0].src.replace("http", "https"));
+
     });
 }
 closeBtn.addEventListener("click", () => {
