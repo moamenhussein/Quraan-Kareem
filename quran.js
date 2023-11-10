@@ -112,7 +112,7 @@ function targets(target) {
     .then((data) => {
       let url = data.data[target].recitation.full
       // document.querySelectorAll("audio")[0].src.replace("http", "https")
-      url.replace("http", "https")
+     
       audio.innerHTML = `
       <audio src="${url.replace("http", "https")}" controls></audio>
       `;
